@@ -3,12 +3,12 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 const carsSlice = createSlice({
   name: "cars",
   initialState: {
-    cars: [],
+    data: [],
     searchTerm: "",
   },
   reducers: {
     addCar(state, action) {
-      state.cars.push({
+      state.data.push({
         //Assumption
         //action.payload === {name: "ab", cost: 130}
         name: action.payload.name,
@@ -22,7 +22,7 @@ const carsSlice = createSlice({
       // const index = state.cars.indexOf(action.payload.id)
       // state.cars.splice(index, 1)
 
-      const updated = state.cars.filter((car) => {
+      const updated = state.data.filter((car) => {
         return car.id !== action.payload;
       });
 
@@ -30,7 +30,6 @@ const carsSlice = createSlice({
     },
     changeSearchTerm(state, action) {
       state.searchTerm = action.payload;
-      //state.searchTerm=""
     },
   },
 });
